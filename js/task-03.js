@@ -12,3 +12,25 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+// Użyj tablicy obiektów images w celu utworzenia elementów <img> umieszczonych w <li>. Aby utworzyć znacznik użyj łańcuchów szablonowych i metody insertAdjacentHTML().
+
+// Wszystkie elementy galerii powinny być dodawane do DOM podczas jednej operacji.
+// Ulepsz galerię używając flexboxów lub gridów poprzez klasy CSS.
+
+const list = document.querySelector(`.gallery`);
+const newGallery = images
+  .map(({ url, alt }) => {
+    return `<li><img src = '${url}' alt = '${alt}' width=100% hight=100%><li>`;
+  })
+  .join("");
+
+list.insertAdjacentHTML("afterbegin", newGallery);
+
+document.body.style.margin = '0px';
+  
+  
+  list.style.cssText = `display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  flex-wrap:wrap;`
